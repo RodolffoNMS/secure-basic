@@ -19,6 +19,6 @@ public class UserController {
     public String userEndpoint(Principal principal){
         // O parâmetro Principal principal é injetado automaticamente pelo Spring Security.
         // Ele contém as informações do usuário autenticado. Aqui usamos para obter o nome, mas podemos usar vários outros métodos
-        return "Seja bem vindo, ao Endpoint USER! Usuário autenticado" + principal.getName();
+        return "Seja bem vindo, ao Endpoint USER! Usuário autenticado como: " + principal.getName();
     }
 }

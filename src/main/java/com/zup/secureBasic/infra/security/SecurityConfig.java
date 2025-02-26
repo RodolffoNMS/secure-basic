@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/login").permitAll() // Permitir acesso ao endpoint de login sem autenticação
                 .requestMatchers("/api/admin").hasRole("ADMIN") // Apenas usuários com a ROLE_ADMIN podem acessar
-                .requestMatchers("/api/user").authenticated() //// Qualquer usuário autenticado pode acessar
+                .requestMatchers("/api/user").authenticated() // Qualquer usuário autenticado pode acessar
                 .anyRequest().denyAll() // Bloqueia qualquer outra requisição
                 .and()
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // Adiciona o filtro JWT antes do filtro padrão de autenticação
