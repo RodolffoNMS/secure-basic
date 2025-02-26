@@ -38,8 +38,8 @@ public class JwtUtil {
               String departament = claims.get("departament", String.class);
 
             return subject.equals(expectedSubject)
-                    && expectedRole.equals(expectedRole)
-                    && expectedDepartment.equals(expectedDepartment); // Verifica se o subject é o esperado
+                    && role.equals(expectedRole) // Comparar com o valor extraído do token
+                    && departament.equals(expectedDepartment); // Comparar com o valor extraído do token
         } catch (Exception e) {
             // Se houver qualquer problema (ex.: assinatura inválida), retorna falso
             return false;
