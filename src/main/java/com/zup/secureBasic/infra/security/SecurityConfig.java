@@ -27,13 +27,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/user").authenticated() //// Qualquer usuário autenticado pode acessar
                 .anyRequest().authenticated()// Todas as outras requisições precisam de autenticação
                 .and()
-                .httpBasic();
-    return http.build();
+                .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class); // Adiciona o filtro
+
+        return http.build();
     }
-
-
-
-
 
     @Bean
     public PasswordEncoder bCryptPasswordEncoder(){ //encripta password
