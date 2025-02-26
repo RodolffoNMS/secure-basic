@@ -1,6 +1,5 @@
 package com.zup.secureBasic.infra.security;
 
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
@@ -27,15 +26,15 @@ public class JwtUtil {
     public static boolean validateToken(String token, String expectedSubject, String expectedRole, String expectedDepartment) {
         try {
             // Analisa o token JWT e extrai as claims
-              var claims = Jwts.parserBuilder()
+            var claims = Jwts.parserBuilder()
                     .setSigningKey(key) // Define a chave secreta usada para verificar a assinatura do token
                     .build()
                     .parseClaimsJws(token) // Analisa o JWT e extrai as claims
                     .getBody();
 
-              String subject = claims.getSubject();
-              String role = claims.get("role", String.class);
-              String departament = claims.get("departament", String.class);
+            String subject = claims.getSubject();
+            String role = claims.get("role", String.class);
+            String departament = claims.get("departament", String.class);
 
             return subject.equals(expectedSubject)
                     && role.equals(expectedRole) // Comparar com o valor extraído do token
