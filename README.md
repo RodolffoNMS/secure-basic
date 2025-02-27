@@ -85,7 +85,7 @@ Login: Envie uma requisição POST para /login com o corpo:
 - User: Envie uma requisição GET para /user com o token no cabeçalho Authorization.
 ## Exemplos de Requisição
 Login
-```json 
+```bash
 curl -X POST http://localhost:8080/login \
 -H "Content-Type: application/json" \
 -d '{"username": "admin", "password": "password"}'
